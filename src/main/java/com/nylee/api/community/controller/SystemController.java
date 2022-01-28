@@ -1,6 +1,6 @@
-package controller;
+package com.nylee.api.community.controller;
 
-import com.nylee.community.CommunityApplication;
+import com.nylee.CommunityApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;

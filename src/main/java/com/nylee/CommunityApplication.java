@@ -1,4 +1,4 @@
-package com.nylee.community;
+package com.nylee;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.quartz.QuartzAutoConfiguration;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
+
 
 @SpringBootApplication(exclude = QuartzAutoConfiguration.class)
 @EnableScheduling
