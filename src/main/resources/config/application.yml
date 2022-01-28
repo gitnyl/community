@@ -1,9 +1,4 @@
 spring:
-  http:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
   mvc:
     servlet:
       load-on-startup: 1
@@ -34,5 +29,10 @@ mybatis:
 server:
   sevlet:
     context-path: /
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 

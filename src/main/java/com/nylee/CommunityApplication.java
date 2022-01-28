@@ -7,19 +7,18 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.quartz.QuartzAutoConfiguration;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 @SpringBootApplication(exclude = QuartzAutoConfiguration.class)
 @EnableScheduling
-public class CommunityApplication extends SpringBootServletInitializer {
+public class CommunityApplication {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Value("${spring.profiles.active}")
-	private String active;
+//	@Value("${spring.profiles.active}")
+//	private String active;
 
 	public static String commonActive;
 

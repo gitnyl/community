@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nylee.api.community.repository.AdminRepository">
+
+    <select id="getAdminList" parameterType="com.nylee.api.community.model.request.admin.ReqAdminSearch" resultType="com.nylee.api.common.repository.model.MngAdmin">
+        SELECT idx
+            , id
+            , level
+            , rgdt
+            , user_name
+            , user_phone
+            , user_email
+            , last_updt
+            , last_upidx
+            , rgidx
+            , enc_key
+        FROM admin
+        WHERE 1 = 1
+        <if test="srchType == null">
+            <if test="srchKeyword != null">
+                AND (
+                    user_name like CONCAT('%', #{srchKeyword},'%')
+                    OR user_phone like CONCAT('%', #{srchKeyword},'%')
+                    OR user_email like CONCAT('%', #{srchKeyword},'%')
+                    OR id like CONCAT('%', #{srchKeyword},'%')
+                )
+            </if>
+        </if>
+
+        <if test="srchType != null and srchKeyword != null">
+            <if test="srchType == 0">
+                AND (
+                    user_name like CONCAT('%', #{srchKeyword},'%')
+                    OR user_phone like CONCAT('%', #{srchKeyword},'%')
+                    OR user_email like CONCAT('%', #{srchKeyword},'%')
+                    OR id like CONCAT('%', #{srchKeyword},'%')
+                )
+            </if>
+            <if test="srchType == 1">
+                AND user_name like CONCAT('%', #{srchKeyword},'%')
+            </if>
+            <if test="srchType == 2">
+                AND user_phone like CONCAT('%', #{srchKeyword},'%')
+            </if>
+            <if test="srchType == 3">
+                AND user_email like CONCAT('%', #{srchKeyword},'%')
+            </if>
+            <if test="srchType == 4">
+                AND id like CONCAT('%', #{srchKeyword},'%')
+            </if>
+        </if>
+        ORDER BY idx DESC
+        <if test="srchPage != null and srchPageCnt != null">
+            LIMIT #{srchPage}, #{srchPageCnt}
+        </if>
+    </select>
+
+</mapper>
