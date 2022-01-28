@@ -1,0 +1,38 @@
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  mvc:
+    servlet:
+      load-on-startup: 1
+    contentnegotiation:
+      favor-parameter: true
+      media-types:
+        xls: application/vnd.ms-excel
+  servlet:
+    multipart:
+      file-size-threshold: 1MB
+      max-file-size: 100MB
+      max-request-size: 100MB
+  banner:
+    location: classpath:/banner.txt
+  mail:
+    host: localhost
+    port: 25
+    from: nylee226@gmail.com
+    properties:
+      mail:
+        smtp:
+          auth: false
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: mappers/*.xml
+
+server:
+  sevlet:
+    context-path: /
+
+
